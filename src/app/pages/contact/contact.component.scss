@@ -1,0 +1,15 @@
+select {
+    color: #999;
+}
+
+.contact-details {
+    a {
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 19px;
+            margin-right: 10px;
+        }
+    }
+}

@@ -12,29 +12,37 @@
 .portfolio-images {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 
   img {
-    width: 270px;
-    height: auto;
+    height: 100px;
+    margin: 8px;
   }
 }
 
 .c-vertical-form {
   width: 50%;
 }
-
+.testimonials {
+  padding-bottom: 160px;
+    padding-top: 160px;
+}
 @media (max-width: 479px) {
   .portfolio-images {
     flex-direction: column;
 
     img {
       width: 100%;
+      height: auto;
       margin: 8px;
     }
   }
 
   .c-vertical-form {
     width: 100%;
+  }
+  .testimonials {
+    padding-bottom: 0;
   }
 }
 

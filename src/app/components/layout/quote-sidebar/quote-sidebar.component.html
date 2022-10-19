@@ -1,17 +1,15 @@
 <div class="box no-padding style2">
-  <img src="/assets/images/PRETURI-SERVICII-CONTABILE.jpg" alt="">
+  <img *ngIf="router.url.includes('/servicii-salarizare-resurse-umane')" src="/assets/images/servicii-de-salarizare-si-resurse-umana-contabilitate.jpg" alt="">
+  <img *ngIf="router.url.includes('/servicii-consultanta-fiscala-contabila')" src="/assets/images/PRETURI-CONSULTANTA-FISCALA.jpg" alt="">
+  <img *ngIf="router.url.includes('/servicii-contabilitate-pfa-ii-if')" src="/assets/images/preturi-contabilitate-pfa.jpg" alt="">
+  <img *ngIf="router.url.includes('/servicii-contabilitate-srl')" src="/assets/images/PRETURI-SERVICII-CONTABILE.jpg" alt="">
 </div>
 
 <div class="box has-bg-color style2">
-    <div class="size-h3 on-dark margin-bottom">Ai vreo îndoială în alegerea serviciului financiar adecvat?</div>
-    <a routerLink="/contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-      class="button-primary animated block-centered is-dark w100 w-inline-block">
-     
-      <div
-        
-        class="button-primary-text">cere oferta</div>
-      <div
-        
-        class="button-primary-text for-hover">hai sa vorbim <span class="fa margin-left"></span></div>
-    </a>
-  </div>
+  <div class="size-h3 on-dark margin-bottom">Vrei servicii de contabilitate performante?</div>
+  <a routerLink="/contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    class="button-primary animated block-centered is-dark w100 w-inline-block">
+    <div class="button-primary-text">cere oferta</div>
+    <div class="button-primary-text for-hover">hai sa vorbim <span class="fa margin-left"></span></div>
+  </a>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -15,6 +15,7 @@ export class ContactComponent implements OnInit {
   message: string;
   categories: string;
   endpoint: string;
+  showForm:boolean = true;
 
   http: HttpClient;
 
@@ -39,6 +40,8 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.endpoint = "https://expert-conta.ro/data/sendEmail.php";
+    this.formContact.reset();
+    console.log(this.formContact)
   }
 
   submit() {
@@ -51,18 +54,16 @@ export class ContactComponent implements OnInit {
       body: this.formContact.value.body,
     };
 
-    if (this.formContact.valid) {
-      setTimeout(() => 
-      this.formGroupDirective.resetForm(), 0)
-    }
-
- 
-
+  
+    
     this.http.post(this.endpoint, postVars)
       .subscribe(
         response => {
          
-          this.router.navigate(['/mesaj-trimis']);
+          
+          window.location.href = 'https://expert-conta.ro/mesaj-trimis'
+          
+          //this.router.navigate(['/mesaj-trimis']);
         }
         
       )

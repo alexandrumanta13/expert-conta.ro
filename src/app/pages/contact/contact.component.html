@@ -14,7 +14,7 @@
       <div class="c-cta1 style2">
         <div class="md-margin-bottom cta-text">
           <div class="w-form">
-            <form id="email-form" name="email-form" data-name="Email Form" [formGroup]="formContact" (ngSubmit)="submit()">
+            <form id="email-form" *ngIf="showForm" name="email-form" data-name="Email Form" [formGroup]="formContact" (ngSubmit)="submit()">
               <div class="container container-nested">
                 <div class="col lg-6 sm-12">
                   <div class="size-h2 max-width-650px margin-bottom">Hai sa vorbim!<br></div>
@@ -25,10 +25,9 @@
                       Jos.
                     </p>
                   </div>
-                  <div>
-                    <a href="tel:+40724374126">0724374126</a> <br>
-                    <a href="tel:+40739913168">0739913168</a><br>
-                    <a href="mail:birou@expert-conta.ro">birou@expert-conta.ro</a><br>
+                  <div class="contact-details">
+                    <a href="tel:+40739913168"><img src="/assets/images/phone--2.svg" alt="">0739913168</a><br>
+                    <a href="mail:birou@expert-conta.ro"><img src="/assets/images/email.svg" alt="">birou@expert-conta.ro</a><br>
                   </div>
                 </div>
                 <div class="col lg-1"></div>
@@ -40,8 +39,8 @@
                     <div *ngIf="f.name.errors.minlength">Numele trebuie sa contina cel putin 3 litere</div>
                   </div>
 
-                  <select name="categories" id="categories" formControlName="categories" [(ngModel)]="categories" class="form-select w-select" placeholder="Esti interesat de:">
-                    <option value="-1" disabled selected>Esti interesat de:</option>
+                  <select name="categories" id="categories" formControlName="categories"  class="form-select w-select" placeholder="Esti interesat de:">
+                    <option value="Nu a selectat" [disabled]="true" [selected]="true">Ma intereseaza:</option>
                     <option value="Contabilitate SRL">Contabilitate SRL</option>
                     <option value="Salarizare si Resurse Umane">Salarizare si Resurse Umane</option>
                     <option value="Consultanta Fiscala">Consultanta Fiscala</option>
@@ -49,7 +48,7 @@
                   </select>
 
                   <input formControlName="phone" type="phone" class="form-input-text w-input" maxlength="256" name="phone" data-name="phone"
-                    placeholder="telefon" id="phone" required="">
+                    placeholder="Telefon" id="phone" required="">
                   <div *ngIf="f.phone.touched && f.phone.invalid" class="alert alert-danger">
                     <div *ngIf="f.phone.errors.required">Introduceti numarul</div>
                     <div *ngIf="f.phone.errors.pattern">Telefonul nu are formatul corect</div>
@@ -59,8 +58,7 @@
                     placeholder="Email" id="email" required="">
                   <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
                     <div *ngIf="f.email.errors.required">Introduceti emailul</div>
-                    <div *ngIf="f.email.errors.minlength">Formatul nu este corect</div>
-                    <div *ngIf="f.email.errors.required">Formatul nu este corect</div>
+                    <div *ngIf="f.email.errors.pattern">Formatul nu este corect</div>
                   </div>
 
                   <button [disabled]="!formContact.valid" type="submit" class="button-primary w-button">Trimite</button>

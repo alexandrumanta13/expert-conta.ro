@@ -35,6 +35,7 @@ import { QuoteSidebarComponent } from './components/layout/quote-sidebar/quote-s
 import { TestimonialsComponent } from './components/layout/testimonials/testimonials.component';
 import { QuickContactFormComponent } from './components/quick-contact-form/quick-contact-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuickActionsComponent } from './components/quick-actions/quick-actions.component';
 
   
 
@@ -65,6 +66,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     QuoteSidebarComponent,
     TestimonialsComponent,
     QuickContactFormComponent,
+    QuickActionsComponent,
     
   ],
   imports: [
